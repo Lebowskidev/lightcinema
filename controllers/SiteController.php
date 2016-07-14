@@ -32,6 +32,7 @@ class SiteController extends Controller
         }
     }
     public function actionDp(){
+        //this code work
        $model = new Dp();
         $db = new Userinformation();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
