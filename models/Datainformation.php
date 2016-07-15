@@ -11,6 +11,7 @@ use Yii;
  * @property string $nam
  * @property string $dat
  * @property string $sen
+ * @property string $img
  */
 class Datainformation extends \yii\db\ActiveRecord
 {
@@ -29,7 +30,7 @@ class Datainformation extends \yii\db\ActiveRecord
     {
         return [
             [['nam'], 'required'],
-            [['dat', 'sen'], 'string'],
+            [['dat', 'sen', 'img'], 'string'],
             [['nam'], 'string', 'max' => 50],
         ];
     }
@@ -44,6 +45,7 @@ class Datainformation extends \yii\db\ActiveRecord
             'nam' => 'Nam',
             'dat' => 'Dat',
             'sen' => 'Sen',
+            'img' => 'Img',
         ];
     }
 }

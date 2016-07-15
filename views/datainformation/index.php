@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Datainformationsearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Інформація про сеанс та премєру';
+$this->title = 'Datainformations';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="datainformation-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Створити запис', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Datainformation', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nam',
             'dat:ntext',
             'sen:ntext',
+            'img:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

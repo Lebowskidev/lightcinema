@@ -23,9 +23,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sen') ?>
 
+    <?= $form->field($model, 'img') ?>
+
     <div class="form-group">
-        <?= Html::submitButton('Знайти', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Заново', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

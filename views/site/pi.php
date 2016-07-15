@@ -24,10 +24,7 @@ use yii\widgets\LinkPager;
             </div>
         <div class="col-md-3 col-md-offset-3 ">
                 <p class="text-justify">
-
                         <?= Html::encode("{$query->dat}") ?>
-
-
                 </p>
             </div>
                 <div class="col-md-4 col-md-offset-4">

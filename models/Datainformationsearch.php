@@ -19,7 +19,7 @@ class Datainformationsearch extends Datainformation
     {
         return [
             [['pi'], 'integer'],
-            [['nam', 'dat', 'sen'], 'safe'],
+            [['nam', 'dat', 'sen', 'img'], 'safe'],
         ];
     }
 
@@ -64,7 +64,8 @@ class Datainformationsearch extends Datainformation
 
         $query->andFilterWhere(['like', 'nam', $this->nam])
             ->andFilterWhere(['like', 'dat', $this->dat])
-            ->andFilterWhere(['like', 'sen', $this->sen]);
+            ->andFilterWhere(['like', 'sen', $this->sen])
+            ->andFilterWhere(['like', 'img', $this->img]);
 
         return $dataProvider;
     }
