@@ -23,7 +23,7 @@ class SiteController extends Controller
 
             $db->name = $model->name;
             $db->email = $model->email;
-            $db->password =Yii::$app->getSecurity()->generatePasswordHash($model->password);
+            $db->password =$model->password;
             $db->id = '';
             $db->date_up = date("Y-m-d H:i:s");
             $db->date_now = date("Y-m-d H:i:s");
@@ -33,14 +33,18 @@ class SiteController extends Controller
             return $this->render('entry', ['model' => $model]);
         }
     }
+    public function actionChoice(){
+               return $this->render('choice');
+    }
     public function actionDp(){
         //this code work
        $model = new Dp();
         $db = new Userdate();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if($model->name == 'bot'  && $model->password == 'bot'){
-                    $db->date_now = date("Y-m-d H:i:s");
-                return $this->redirect('http://light:81/datainformation');
+               //     $db->date_now = date("Y-m-d H:i:s");
+               return $this->redirect('http://light:81/site/choice');
+                // return $this->redirect('http://light:81/datainformation');
                 //return $this->redirect('http://light:81/index.php?r=datainformation');
             }
            $db = Userdate::find()
