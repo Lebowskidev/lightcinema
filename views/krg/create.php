@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Krg */
 
-$this->title = 'Create Krg';
-$this->params['breadcrumbs'][] = ['label' => 'Krgs', 'url' => ['index']];
+$this->title = 'Створити новий сеанс та премєру';
+$this->params['breadcrumbs'][] = ['label' => 'Krg', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="krg-create">

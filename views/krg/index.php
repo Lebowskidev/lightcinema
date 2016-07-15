@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Krgsearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Krgs';
+$this->title = 'Таблиця з інформацією про премєри та сеанси';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="krg-index">
@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Krg', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <!--<p>
+        < Html::a('Створити нову премєру та сеанси', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>-->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
