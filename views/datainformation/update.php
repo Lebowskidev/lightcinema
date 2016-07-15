@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = 'Оновити інформацію про сеанси та премєри: ' . $model->pi;
 $this->params['breadcrumbs'][] = ['label' => 'Datainformations', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->pi, 'url' => ['view', 'id' => $model->pi]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Оновлення';
 ?>
 <div class="datainformation-update">
 
