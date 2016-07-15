@@ -26,7 +26,7 @@ class SiteController extends Controller
             $db->password =Yii::$app->getSecurity()->generatePasswordHash($model->password);
             $db->id = '';
             $db->save();
-            return $this->redirect('http://host:81/index.php');
+            return $this->redirect('http://light:81/');
         } else {
             return $this->render('entry', ['model' => $model]);
         }
@@ -36,16 +36,16 @@ class SiteController extends Controller
        $model = new Dp();
         $db = new Userinformation();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if($model->name == 'admin'  && $model->password == 'admin'){
+            if($model->name == 'bot'  && $model->password == 'bot'){
                 return $this->redirect('http://light:81/index.php?r=datainformation');
             }
            $db = Userinformation::find()
                 ->where(['name' => $model->name] and ['password' => $model->password])
                 ->one();
             if($db->name == $model->name) {
-                return $this->redirect('http://host:81/index.php?r=site%2Fabout');
+                return $this->redirect('http://light:81/index.php?r=site%2Fabout');
             } else {
-                return $this->redirect('http://host:81/index.php?r=site%2Fentry');
+                return $this->redirect('http://light:81/index.php?r=site%2Fentry');
             }
         }else{
             return   $this->render('dp', ['model' => new Dp]);
