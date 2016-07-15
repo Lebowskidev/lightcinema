@@ -28,8 +28,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'date_now') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Оновити', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Заново', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
