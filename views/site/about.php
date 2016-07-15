@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="list-group">
     <div class="list-group-item row">
         <div class="col-md-3">
-            <img src="files/log1.jpg">
+            <img src="/files/log1.jpg" alt="logo">
         </div>
         <div class="col-md-3 col-md-offset-3 ">
             <p class="text-justify">
@@ -30,15 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="list-group-item row">
             <div class="col-md-3">
                 <h2>Буфет</h2>
-            <img src="files/pic1.jpg">
+            <img src="/files/pic1.jpg" alt=" pic">
                 </div>
             </div>
         <div class="list-group-item row">
             <div class="col-md-3">
                 <h2>Зал</h2>
-                <img src="files/pic2.jpg">
+                <img src="/files/pic2.jpg" alt=" pic">
                 <br><br>
-                <img src="files/pic3.jpg">
+                <img src="/files/pic3.jpg" alt=" pic">
             </div>
             </div>
         </div>
