@@ -48,7 +48,7 @@ class SiteController extends Controller
                 return $this->redirect('http://light:81/site/about');
             } else {
                // return $this->redirect('http://light:81/index.php?r=site%2Fentry');
-                return $this->redirect('http//light:81/site/entry');
+                return $this->redirect('http://light:81/site/entry');
             }
         }else{
             return   $this->render('dp', ['model' => new Dp]);

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Datainformation */
 
-$this->title = 'Оновити інформацію про сеанси та премєри: ' . $model->pi;
+$this->title = 'Оновити дані:' . $model->pi;
 $this->params['breadcrumbs'][] = ['label' => 'Datainformations', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->pi, 'url' => ['view', 'id' => $model->pi]];
-$this->params['breadcrumbs'][] = 'Оновлення';
+$this->params['breadcrumbs'][] = ['label' => $model->pi, ':81url:81' => ['view', 'id' => $model->pi]];
+$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="datainformation-update">
 
