@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "kgr".
+ * This is the model class for table "datainformation".
  *
  * @property string $pi
  * @property string $nam
  * @property string $dat
  * @property string $sen
  */
-class Kgr extends \yii\db\ActiveRecord
+class Datainformation extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'kgr';
+        return 'datainformation';
     }
 
     /**

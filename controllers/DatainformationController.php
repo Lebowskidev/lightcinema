@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Krg;
-use app\models\Krgsearch;
+use app\models\Datainformation;
+use app\models\Datainformationsearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * KrgController implements the CRUD actions for Krg model.
+ * DatainformationController implements the CRUD actions for Datainformation model.
  */
-class KrgController extends Controller
+class DatainformationController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class KrgController extends Controller
     }
 
     /**
-     * Lists all Krg models.
+     * Lists all Datainformation models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new Krgsearch();
+        $searchModel = new Datainformationsearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class KrgController extends Controller
     }
 
     /**
-     * Displays a single Krg model.
+     * Displays a single Datainformation model.
      * @param string $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class KrgController extends Controller
     }
 
     /**
-     * Creates a new Krg model.
+     * Creates a new Datainformation model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Krg();
+        $model = new Datainformation();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->pi]);
@@ -75,7 +75,7 @@ class KrgController extends Controller
     }
 
     /**
-     * Updates an existing Krg model.
+     * Updates an existing Datainformation model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -94,7 +94,7 @@ class KrgController extends Controller
     }
 
     /**
-     * Deletes an existing Krg model.
+     * Deletes an existing Datainformation model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -107,15 +107,15 @@ class KrgController extends Controller
     }
 
     /**
-     * Finds the Krg model based on its primary key value.
+     * Finds the Datainformation model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Krg the loaded model
+     * @return Datainformation the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Krg::findOne($id)) !== null) {
+        if (($model = Datainformation::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

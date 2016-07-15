@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Krg;
+use app\models\Datainformation;
 
 /**
- * Krgsearch represents the model behind the search form about `app\models\Krg`.
+ * Datainformationsearch represents the model behind the search form about `app\models\Datainformation`.
  */
-class Krgsearch extends Krg
+class Datainformationsearch extends Datainformation
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class Krgsearch extends Krg
      */
     public function search($params)
     {
-        $query = Krg::find();
+        $query = Datainformation::find();
 
         // add conditions that should always apply here
 

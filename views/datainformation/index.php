@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\Krgsearch */
+/* @var $searchModel app\models\Datainformationsearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Таблиця з інформацією про премєри та сеанси';
+$this->title = 'Datainformations';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="krg-index">
+<div class="datainformation-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <!--<p>
-        < Html::a('Створити нову премєру та сеанси', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>-->
+    <p>
+        <?= Html::a('Create Datainformation', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

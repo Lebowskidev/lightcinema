@@ -6,7 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\Kgr;
+use app\models\Datainformation;
 use app\models\EntryForm;
 use app\models\Dp;
 use app\models\Userinformation;
@@ -37,7 +37,7 @@ class SiteController extends Controller
         $db = new Userinformation();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if($model->name == 'admin'  && $model->password == 'admin'){
-                return $this->redirect('http://host:81/index.php?r=krg');
+                return $this->redirect('http://light:81/index.php?r=datainformation');
             }
            $db = Userinformation::find()
                 ->where(['name' => $model->name] and ['password' => $model->password])
@@ -89,7 +89,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $query = Kgr::find();
+        $query = Datainformation::find();
 
         $dats = $query->orderBy('pi')
             ->all();
@@ -97,6 +97,7 @@ class SiteController extends Controller
         return $this->render('pi',[
             'dats' => $dats
             ,]);
+
     }
 
     public function actionLogin()
