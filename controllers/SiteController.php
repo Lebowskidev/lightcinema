@@ -9,14 +9,14 @@ use yii\filters\VerbFilter;
 use app\models\Datainformation;
 use app\models\EntryForm;
 use app\models\Dp;
-use app\models\Userinformation;
+use app\models\Userdate;
 
 class SiteController extends Controller
 {
     public function actionEntry()
     {
         $model = new EntryForm();
-        $db = new Userinformation();
+        $db = new Userdate();
 
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -25,6 +25,8 @@ class SiteController extends Controller
             $db->email = $model->email;
             $db->password =Yii::$app->getSecurity()->generatePasswordHash($model->password);
             $db->id = '';
+            $db->date_up = date("Y-m-d H:i:s");
+            $db->date_now = date("Y-m-d H:i:s");
             $db->save();
             return $this->redirect('http://light:81/');
         } else {
@@ -34,17 +36,19 @@ class SiteController extends Controller
     public function actionDp(){
         //this code work
        $model = new Dp();
-        $db = new Userinformation();
+        $db = new Userdate();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if($model->name == 'bot'  && $model->password == 'bot'){
+                    $db->date_now = date("Y-m-d H:i:s");
                 return $this->redirect('http://light:81/datainformation');
                 //return $this->redirect('http://light:81/index.php?r=datainformation');
             }
-           $db = Userinformation::find()
+           $db = Userdate::find()
                 ->where(['name' => $model->name] and ['password' => $model->password])
                 ->one();
             if($db->name == $model->name) {
                // return $this->redirect('http://light:81/index.php?r=site%2Fabout  ');
+                $db->date_up = date("Y-m-d H:i:s");
                 return $this->redirect('http://light:81/site/about');
             } else {
                // return $this->redirect('http://light:81/index.php?r=site%2Fentry');
