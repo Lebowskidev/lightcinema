@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -36,7 +38,6 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-         //   ['label' => 'Головна', 'url' => ['/site/index']],
             //['label' => "Про кінотеатр", 'url' => ['/site/about']],
             ['label' => 'Реєстрація', 'url' => ['/site/entry']],
             ['label' => 'Вхід', 'url' => ['/site/dp']],
@@ -44,7 +45,6 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

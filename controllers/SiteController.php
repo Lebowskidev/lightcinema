@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\Datainformation;
@@ -42,18 +43,15 @@ class SiteController extends Controller
         $db = new Userdate();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if($model->name == 'bot'  && $model->password == 'bot'){
-               //     $db->date_now = date("Y-m-d H:i:s");
-               //return $this->redirect('http://light:80/site/choice');
-                // return $this->redirect('http://light:80/datainformation');
                 return $this->redirect('http://light:80/index.php?r=datainformation');
             }
            $db = Userdate::find()
                 ->where(['name' => $model->name] and ['password' => $model->password])
                 ->one();
             if($db->name == $model->name) {
-               // return $this->redirect('http://light:80/index.php?r=site%2Fabout  ');
                 $db->date_up = date("Y-m-d H:i:s");
-                return $this->redirect('http://light:80/site/about');
+                return $this->redirect('http://light:80/index.php?r=site%2Fabout  ');
+                //return $this->redirect('http://light:80/site/about');
             } else {
                return $this->redirect('http://light:80/index.php?r=site%2Fentry');
                 //return $this->redirect('http://light:80/site/entry');
@@ -109,31 +107,6 @@ class SiteController extends Controller
             'dats' => $dats
             ,]);
 
-    }
-
-    public function actionLogin()
-    {
-
-    }
-
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
-
-    public function actionContact()
-    {
-        /*$model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);*/
     }
 
     public function actionAbout()
