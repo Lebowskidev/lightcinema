@@ -2,64 +2,25 @@
 
 namespace app\controllers;
 
+use app\models\ContactForm;
+use app\models\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
-use yii\helpers\Html;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\Datainformation;
 use app\models\EntryForm;
 use app\models\Dp;
 use app\models\Userdate;
+use app\models\User;
 
 class SiteController extends Controller
 {
-    public function actionEntry()
-    {
-        $model = new EntryForm();
-        $db = new Userdate();
 
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-
-            $db->name = $model->name;
-            $db->email = $model->email;
-            $db->password =$model->password;
-            $db->id = '';
-            $db->date_up = date("Y-m-d H:i:s");
-            $db->date_now = date("Y-m-d H:i:s");
-            $db->save();
-            return $this->redirect('http://light:80/');
-        } else {
-            return $this->render('entry', ['model' => $model]);
-        }
-    }
     public function actionChoice(){
                return $this->render('choice');
     }
-    public function actionDp(){
-        //this code work
-       $model = new Dp();
-        $db = new Userdate();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if($model->name == 'bot'  && $model->password == 'bot'){
-                return $this->redirect('http://light:80/index.php?r=datainformation');
-            }
-           $db = Userdate::find()
-                ->where(['name' => $model->name] and ['password' => $model->password])
-                ->one();
-            if($db->name == $model->name) {
-                $db->date_up = date("Y-m-d H:i:s");
-                return $this->redirect('http://light:80/index.php?r=site%2Fabout  ');
-                //return $this->redirect('http://light:80/site/about');
-            } else {
-               return $this->redirect('http://light:80/index.php?r=site%2Fentry');
-                //return $this->redirect('http://light:80/site/entry');
-            }
-        }else{
-            return   $this->render('dp', ['model' => new Dp]);
-        }
-    }
+
     public function behaviors()
     {
         return [
@@ -109,8 +70,41 @@ class SiteController extends Controller
 
     }
 
-    public function actionAbout()
+    public function actionLogin()
     {
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->user->login($model->lr())) {
+            return $this->redirect('http://gl/index.php?r=site%2Fabout');
+        }
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->render('logout',['model'=>'model']);
+    }
+
+    public function actionContact()
+    {
+        $model = new ContactForm();
+        $db = new User();
+        if ($model->load(Yii::$app->request->post())) {
+            $db->username = $model->name;
+            $db->password = $model->password;
+            $db->id = '';
+            $db->save();
+            return $this->goHome();
+        }
+        return $this->render('contact', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionAbout(){
         return $this->render('about');
     }
 }

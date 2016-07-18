@@ -5,7 +5,6 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 //$this->title = 'Головна';
-
 ?>
 <title>Головна</title>
 <div class="site-index">

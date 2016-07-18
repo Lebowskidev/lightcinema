@@ -10,8 +10,6 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
-
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -30,7 +28,6 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'Кінотеатр',
-        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -38,13 +35,25 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            //['label' => "Про кінотеатр", 'url' => ['/site/about']],
-            ['label' => 'Реєстрація', 'url' => ['/site/entry']],
-            ['label' => 'Вхід', 'url' => ['/site/dp']],
+            ['label' => 'Реєстрація', 'url' => ['/site/contact']],
+            ['label' => 'Вихід ' . Yii::$app->user->identity->username .'', 'url'=> ['/site/logout'],'linkOptions' => ['data-method' => 'post']],
+            Yii::$app->user->isGuest ? (
+            ['label' => 'Вхід', 'url' => ['/site/login']]
+            ) : (
+                '<li>'
+                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
+                . Html::submitButton(
+                    'Вхід ' . Yii::$app->user->identity->username . '',
+                    ['class' => 'btn btn-link']
+                )
+                . Html::endForm()
+                . '</li>'
+            )
         ],
     ]);
     NavBar::end();
     ?>
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
