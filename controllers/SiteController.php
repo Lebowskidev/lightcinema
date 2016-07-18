@@ -28,7 +28,7 @@ class SiteController extends Controller
             $db->date_up = date("Y-m-d H:i:s");
             $db->date_now = date("Y-m-d H:i:s");
             $db->save();
-            return $this->redirect('http://light:81/');
+            return $this->redirect('http://light:80/');
         } else {
             return $this->render('entry', ['model' => $model]);
         }
@@ -43,20 +43,20 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if($model->name == 'bot'  && $model->password == 'bot'){
                //     $db->date_now = date("Y-m-d H:i:s");
-               return $this->redirect('http://light:81/site/choice');
-                // return $this->redirect('http://light:81/datainformation');
-                //return $this->redirect('http://light:81/index.php?r=datainformation');
+               //return $this->redirect('http://light:80/site/choice');
+                // return $this->redirect('http://light:80/datainformation');
+                return $this->redirect('http://light:80/index.php?r=datainformation');
             }
            $db = Userdate::find()
                 ->where(['name' => $model->name] and ['password' => $model->password])
                 ->one();
             if($db->name == $model->name) {
-               // return $this->redirect('http://light:81/index.php?r=site%2Fabout  ');
+               // return $this->redirect('http://light:80/index.php?r=site%2Fabout  ');
                 $db->date_up = date("Y-m-d H:i:s");
-                return $this->redirect('http://light:81/site/about');
+                return $this->redirect('http://light:80/site/about');
             } else {
-               // return $this->redirect('http://light:81/index.php?r=site%2Fentry');
-                return $this->redirect('http://light:81/site/entry');
+               return $this->redirect('http://light:80/index.php?r=site%2Fentry');
+                //return $this->redirect('http://light:80/site/entry');
             }
         }else{
             return   $this->render('dp', ['model' => new Dp]);

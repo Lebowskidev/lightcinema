@@ -41,8 +41,10 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
 
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'enablePrettyUrl' => false,
+            'showScriptName' => true,
+            'baseUrl' => 'http://light:80',
+            'hostInfo' => 'http://light:80',
             'rules' => [
                 '<controller>/<action>' => '<controller>/<action>',
             ],

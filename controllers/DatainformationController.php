@@ -8,7 +8,7 @@ use app\models\Datainformationsearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\Request;
 /**
  * DatainformationController implements the CRUD actions for Datainformation model.
  */
@@ -63,6 +63,8 @@ class DatainformationController extends Controller
      */
     public function actionCreate()
     {
+        var_dump(Yii::$app->request->getHostInfo());
+        var_dump(Yii::$app->request->getServerPort());
         $model = new Datainformation();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
